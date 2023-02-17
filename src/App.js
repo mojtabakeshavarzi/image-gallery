@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
 
 function App() {
+
+  // access key
+  //jIoFx6nGLjVAL_h0BMiWJaKeP9z3mgZxIA4Glofd-xQ
+  const[value , setValue] = useState("");
+
+  const[result , setResult] = useState("");
+
+  const fetchImage = () => {
+    fetch(`https://api.unsplash.com/search/photos/?client_id=jIoFx6nGLjVAL_h0BMiWJaKeP9z3mgZxIA4Glofd-xQ&query=${value}`)
+    .then(res => res.json())
+    .then(data => {
+      setResult(data.results);
+    })
+    
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <div className="header">
+          <span>Search</span>
+          <input 
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          />
+          <button onClick={fetchImage}>Search</button>
+        </div>
+        <div className="gallery">
+          {
+            result && result.map((item) => 
+            <img
+            key={item.id}
+            src={item.urls.regular}
+            alt=""
+            /> )
+          }
+        </div>
     </div>
   );
 }

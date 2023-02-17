@@ -1,13 +1,56 @@
-body {
+*{
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+}
+body {
+  font-family: 'vazir' !important;
+  background: #101820FF;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 300px;
+  box-shadow: 0 0 10px rgba(117,117,117,.3);
+  background: #fff !important;
+}
+
+.header input{
+  width: 500px;
+  padding: 10px;
+  border-radius: 25px;
+  border: 1px solid #bebdbd;
+  outline: none;
+}
+
+.header button{
+  width: 150px;
+  background: #101820FF;
+  border: none;
+  color:  #FEE715FF ;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.gallery{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.gallery img{
+  width: 25%;
+  height: 400px;
+  object-fit: cover;
+  margin: 0;
+  margin: 10px;
+  border-radius: 12px;
+  box-shadow: #FEE715FF 0px 6px 15px 0px, #FEE715FF 0px 0px 0px 1px;
 }
